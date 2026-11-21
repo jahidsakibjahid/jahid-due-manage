@@ -1,0 +1,405 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jahid Due Manager</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="brand-icon"><i class="fa-solid fa-wallet"></i></div>
+            <span>JAHID<span class="brand-light">DUE</span></span>
+        </div>
+
+        <p class="menu-label">MAIN MENU</p>
+
+        <nav>
+            <a href="#dashboard" class="nav-link active">
+                <i class="fa-solid fa-house"></i> Home
+            </a>
+            <a href="#customers" class="nav-link">
+                <i class="fa-solid fa-users"></i> Customers
+            </a>
+            <a href="#transactions" class="nav-link">
+                <i class="fa-solid fa-arrow-right-arrow-left"></i> Transactions
+            </a>
+            <a href="#add-transaction" class="nav-link">
+                <i class="fa-solid fa-money-bill-transfer"></i> Payment
+            </a>
+        </nav>
+
+        <p class="menu-label account-label">MANAGEMENT</p>
+
+        <nav>
+            <a href="#add-customer" class="nav-link">
+                <i class="fa-solid fa-user-plus"></i> Add Customer
+            </a>
+            <a href="#transactions" class="nav-link">
+                <i class="fa-solid fa-clock-rotate-left"></i> Activity
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="profile">
+                <div class="avatar">J</div>
+                <div>
+                    <strong>My Shop</strong>
+                    <small>Due Manager</small>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- TOP HEADER -->
+        <div class="topbar">
+            <div>
+                <span class="date-label">SHOP MANAGEMENT</span>
+                <h1>Dashboard</h1>
+            </div>
+
+            <div class="topbar-right">
+                <div class="status-dot"></div>
+                <span>System Active</span>
+                <div class="top-avatar">J</div>
+            </div>
+        </div>
+
+
+        <!-- DASHBOARD -->
+        <section id="dashboard">
+
+            <div class="welcome">
+                <div>
+                    <h2>Welcome back 👋</h2>
+                    <p>Here's what's happening with your shop today.</p>
+                </div>
+                <span class="today-badge">
+                    <i class="fa-regular fa-calendar"></i> My Shop Dashboard
+                </span>
+            </div>
+
+
+            <!-- STAT CARDS -->
+            <div class="dashboard-grid">
+
+                <div class="stat-card balance-card">
+                    <div class="card-top">
+                        <span>Total Outstanding Due</span>
+                        <div class="stat-icon orange">
+                            <i class="fa-solid fa-wallet"></i>
+                        </div>
+                    </div>
+                    <h2 id="totalDue">৳0.00</h2>
+                    <p class="card-subtitle">Money customers owe you</p>
+                </div>
+
+                <div class="stat-card customer-card">
+                    <div class="card-top">
+                        <span>Total Customers</span>
+                        <div class="stat-icon green">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                    </div>
+                    <h2 id="totalCustomers">0</h2>
+                    <p class="card-subtitle">Customers in your shop</p>
+                </div>
+
+                <div class="stat-card received-card">
+                    <div class="card-top">
+                        <span>Total Received</span>
+                        <div class="stat-icon blue">
+                            <i class="fa-solid fa-hand-holding-dollar"></i>
+                        </div>
+                    </div>
+                    <h2 id="totalReceived">৳0.00</h2>
+                    <p class="card-subtitle">Total payment collected</p>
+                </div>
+
+                <div class="stat-card activity-card">
+                    <div class="card-top">
+                        <span>Quick Actions</span>
+                        <div class="stat-icon purple">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                    </div>
+                    <div class="quick-actions">
+                        <a href="#add-customer">+ Customer</a>
+                        <a href="#add-transaction">+ Transaction</a>
+                    </div>
+                    <p class="card-subtitle">Manage your shop easily</p>
+                </div>
+
+            </div>
+
+
+            <!-- LOWER DASHBOARD -->
+            <div class="content-grid">
+
+                <div class="panel chart-panel">
+                    <div class="panel-heading">
+                        <div>
+                            <h3>Shop Overview</h3>
+                            <p>Your financial summary</p>
+                        </div>
+                        <span class="chart-tag">BDT ৳</span>
+                    </div>
+
+                    <div class="overview-content">
+                        <div class="overview-item">
+                            <div class="overview-icon due-icon">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </div>
+                            <div>
+                                <small>Outstanding Due</small>
+                                <strong id="chartDue">৳0.00</strong>
+                            </div>
+                        </div>
+
+                        <div class="overview-item">
+                            <div class="overview-icon paid-icon">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div>
+                                <small>Received Payments</small>
+                                <strong id="chartReceived">৳0.00</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chart-note">
+                        <i class="fa-solid fa-circle-info"></i>
+                        Your shop's overall due and collection summary.
+                    </div>
+                </div>
+
+
+                <div class="panel action-panel">
+                    <div class="panel-heading">
+                        <div>
+                            <h3>Quick Transaction</h3>
+                            <p>Add due or receive payment</p>
+                        </div>
+                        <i class="fa-solid fa-arrow-right-arrow-left action-heading-icon"></i>
+                    </div>
+
+                    <a href="#add-transaction" class="quick-action due-action">
+                        <span><i class="fa-solid fa-plus"></i></span>
+                        <div>
+                            <strong>Add Due</strong>
+                            <small>Add customer outstanding</small>
+                        </div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+
+                    <a href="#add-transaction" class="quick-action payment-action">
+                        <span><i class="fa-solid fa-arrow-down"></i></span>
+                        <div>
+                            <strong>Receive Payment</strong>
+                            <small>Record customer payment</small>
+                        </div>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ADD CUSTOMER -->
+        <section class="panel section-panel" id="add-customer">
+            <div class="panel-heading">
+                <div>
+                    <h3>Add New Customer</h3>
+                    <p>Create a customer profile</p>
+                </div>
+                <div class="heading-icon"><i class="fa-solid fa-user-plus"></i></div>
+            </div>
+
+            <form id="customerForm" class="form-grid">
+                <div class="input-group">
+                    <label>Customer Name</label>
+                    <input id="customerName" placeholder="Enter customer name" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Phone Number</label>
+                    <input id="customerPhone" placeholder="Enter phone number">
+                </div>
+
+                <div class="input-group">
+                    <label>Address</label>
+                    <input id="customerAddress" placeholder="Enter address">
+                </div>
+
+                <button type="submit">
+                    <i class="fa-solid fa-plus"></i> Add Customer
+                </button>
+            </form>
+        </section>
+
+
+        <!-- ADD TRANSACTION -->
+        <section class="panel section-panel" id="add-transaction">
+            <div class="panel-heading">
+                <div>
+                    <h3>Add Transaction</h3>
+                    <p>Manage customer due and payment</p>
+                </div>
+                <div class="heading-icon"><i class="fa-solid fa-money-bill-transfer"></i></div>
+            </div>
+
+            <form id="transactionForm" class="form-grid">
+
+                <div class="input-group">
+                    <label>Select Customer</label>
+                    <select id="transactionCustomer" required>
+                        <option value="">Select customer</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Transaction Type</label>
+                    <select id="transactionType" required>
+                        <option value="due">Add Due (বাকি)</option>
+                        <option value="payment">Receive Payment (জমা)</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Amount (BDT)</label>
+                    <input id="transactionAmount" type="number"
+                        min="0.01" step="0.01"
+                        placeholder="Enter amount" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Note</label>
+                    <input id="transactionNote" placeholder="Optional note">
+                </div>
+
+                <button type="submit">
+                    <i class="fa-solid fa-check"></i> Save Transaction
+                </button>
+            </form>
+
+            <p id="transactionMessage"></p>
+        </section>
+
+
+        <!-- CUSTOMER TABLE -->
+        <section class="panel section-panel" id="customers">
+            <div class="panel-heading">
+                <div>
+                    <h3>Customer Management</h3>
+                    <p>View and manage all customers</p>
+                </div>
+                <div class="heading-icon"><i class="fa-solid fa-users"></i></div>
+            </div>
+
+            <input id="searchCustomer"
+                class="search-input"
+                placeholder="Search customer by name or phone...">
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Customer</th>
+                            <th>Phone</th>
+                            <th>Outstanding Due</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="customerTable"></tbody>
+                </table>
+            </div>
+        </section>
+
+
+        <!-- TRANSACTION HISTORY -->
+        <section class="panel section-panel" id="transactions">
+            <div class="panel-heading">
+                <div>
+                    <h3>Recent Transactions</h3>
+                    <p>Track all due and payment activities</p>
+                </div>
+                <div class="heading-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+            </div>
+
+            <div class="filters">
+                <select id="historyCustomer">
+                    <option value="">All Customers</option>
+                </select>
+
+                <select id="historyType">
+                    <option value="">All Transactions</option>
+                    <option value="due">Due Only</option>
+                    <option value="payment">Payment Only</option>
+                </select>
+            </div>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Customer</th>
+                            <th>Type</th>
+                            <th>Amount</th>
+                            <th>Note</th>
+                        </tr>
+                    </thead>
+                    <tbody id="historyTable"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer>
+            Jahid Due Manager <span>•</span> Personal Shop Management
+        </footer>
+
+    </main>
+</div>
+
+<script src="/static/app.js"></script>
+
+<script>
+    // Update the extra summary values after dashboard data loads.
+    // The main app.js remains responsible for loading real database data.
+    const summaryObserver = new MutationObserver(() => {
+        const due = document.getElementById("totalDue").textContent;
+        const received = document.getElementById("totalReceived").textContent;
+
+        document.getElementById("chartDue").textContent = due;
+        document.getElementById("chartReceived").textContent = received;
+    });
+
+    summaryObserver.observe(document.getElementById("totalDue"), {
+        childList: true,
+        characterData: true,
+        subtree: true
+    });
+
+    summaryObserver.observe(document.getElementById("totalReceived"), {
+        childList: true,
+        characterData: true,
+        subtree: true
+    });
+</script>
+
+</body>
+</html>
